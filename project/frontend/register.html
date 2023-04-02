@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="main">
+      <p>Register Here</p>
+      <div class="nav">
+        <h2>Name:<input type="text" /></h2>
+        <h2>Email:<input type="text" /></h2>
+        <h2>Password:<input type="text" /></h2>
+        <h2>County:<input type="text" /></h2>
+        <h2>City: <input type="text" /></h2>
+        <button class="btnsubmit"><a href="login.html">submit</a></button>
+      </div>
+    </div>
+  </body>
+  <script>
+    document.getElementById("up").addEventListener("submit", (e) => {
+      e.preventDefault();
+      let name = document.getElementById("nameup").value;
+          
+        let email = document.getElementById("emailup").value;
+      let password = document.getElementById("passwordup").value;
+      let county = document.getElementById("county").value;
+      let city = document.getElementById("city").value;
+
+      let obj = {
+        name: name,
+        email: email,
+        password: password,
+        country: country,
+        city: city,
+      };
+      console.log(obj);
+
+      fetch("http://localhost:5511/users/register", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(obj),
+      })
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          console.log(data);
+          alert("Registration done !");
+          window.location.href = "./index.html";
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    });
+
+    // document.getElementById("in").addEventListener("submit", (e) => {
+    //     e.preventDefault();
+    //     let email=document.getElementById("emailin").value
+    //     let password=document.getElementById("passwordin").value
+
+    //     let obj={
+    //         email:email,
+    //         password:password
+
+    //     }
+    //     console.log(obj)
+
+    // fetch("http://localhost:5511/users/login",{
+    //     method:'POST',
+    //     headers:{
+    //         "Content-type":"application/json"
+    //     },
+    //     body:JSON.stringify(obj)
+    // })
+    // .then((res)=>{
+    //     return res.json();
+    // })
+    // .then((res)=>{
+    //     console.log(res);
+
+    //     localStorage.setItem("token",res.token);
+    //     // window.location.href = "./addposts.html";
+    //        $('.signup, .signin, #pop').hide();
+
+    // })
+    // .catch((err)=>{
+    //     document.getElementById("alertinh").innerText=`Wrong Credential !`;
+    //     document.getElementById("alertinp").innerText=`Please provide correct user details.`;
+
+    // console.log(err);
+    // })
+    // })
+
+    // function displaydata(res){
+    //     res.forEach((el) => {
+
+    //         document.getElementById("login").innerText=`Hello Mr. ${el.Name}`;
+    //     });
+    // }
+  </script>
+</html>
