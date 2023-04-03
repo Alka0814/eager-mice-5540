@@ -1,0 +1,47 @@
+
+.a{
+    /* border: 2px solid red; */
+    display: flex;
+}
+.b h1{
+font-size: 40px;
+padding-left: 50px;
+padding-top: 120px;
+
+}
+.b p{
+    padding-left: 50px;
+    margin-top: -20px;
+}
+.cimg{
+    padding-left: 140px;
+}
+.flex{
+    display: flex;
+    box-sizing: border-box;
+    justify-content: space-between;
+    width: 1000px;
+    padding-left: 100px;
+padding-top: 50px;
+}
+.fleximg{
+    padding-left: 0px;
+    height: 80px;
+    width: 80px;
+}
+.d{
+    display: flex;
+}
+.f{
+    padding-left: 700px;
+    /* border: 4px solid red; */
+}
+.f a{
+    box-sizing: border-box ;
+    /* height: 50px; */
+}
+.f div{
+    border: 2px solid black;
+    margin-bottom: 10px;
+    /* height: 60px; */
+}
